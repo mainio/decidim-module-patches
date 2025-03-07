@@ -16,8 +16,8 @@ gem "decidim", DECIDIM_VERSION
 gem "decidim-patches", path: "."
 
 gem "bootsnap", "~> 1.4"
-gem "puma", ">= 5.6.2"
 gem "faker", "~> 2.14"
+gem "puma", ">= 5.6.2"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
