@@ -13,6 +13,9 @@ module Decidim
         Decidim::Admin::CreateParticipatorySpacePrivateUser.include(
           Decidim::Patches::Admin::CreateParticipatorySpacePrivateUserExtensions
         )
+        Decidim::Admin::DestroyComponent.include(
+          Decidim::Patches::Admin::DestroyComponentExtensions
+        )
 
         # Queries
         Decidim::Admin::NewsletterRecipients.include(
