@@ -13,6 +13,14 @@ module Decidim
         end
       end
 
+      initializer "decidim_patches.signed_global_id", after: "global_id" do |app|
+        next if app.config.global_id.fetch(:expires_in, nil).present?
+
+        config.after_initialize do
+          SignedGlobalID.expires_in = nil
+        end
+      end
+
       config.to_prepare do
         # Helpers
         Decidim::LayoutHelper.include(Decidim::Patches::LayoutHelperExtensions)
