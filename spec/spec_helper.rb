@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require "decidim/dev"
+require "decidim/patches/test/auth_engine"
 
 ENV["ENGINE_ROOT"] = File.dirname(__dir__)
 

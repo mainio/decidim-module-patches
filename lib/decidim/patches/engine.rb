@@ -6,6 +6,9 @@ module Decidim
       isolate_namespace Decidim::Patches
 
       config.to_prepare do
+        # Helpers
+        Decidim::LayoutHelper.include(Decidim::Patches::LayoutHelperExtensions)
+
         # Commands
         Decidim::Admin::CreateParticipatorySpacePrivateUser.include(
           Decidim::Patches::Admin::CreateParticipatorySpacePrivateUserExtensions

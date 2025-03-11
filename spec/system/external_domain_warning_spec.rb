@@ -33,7 +33,7 @@ describe "ExternalDomainWarning", type: :system do
       expect(page).to have_content("Open external link")
 
       link = find("a", text: "Proceed")
-      expect(link["href"]).to eq("http://www.github.com")
+      expect(link["href"]).to eq("http://www.github.com/")
       expect(link["rel"]).to eq("nofollow noopener noreferrer")
     end
   end
