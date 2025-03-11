@@ -10,6 +10,9 @@ module Decidim
         Decidim::Admin::CreateParticipatorySpacePrivateUser.include(
           Decidim::Patches::Admin::CreateParticipatorySpacePrivateUserExtensions
         )
+
+        # Lib
+        Decidim::FormBuilder.include(Decidim::Patches::FormBuilderExtensions)
       end
     end
   end
