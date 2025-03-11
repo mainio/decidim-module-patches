@@ -5,6 +5,14 @@ module Decidim
     class Engine < ::Rails::Engine
       isolate_namespace Decidim::Patches
 
+      initializer "decidim_patches.api_extensions" do
+        Decidim::Api.module_eval do
+          config_accessor :disclose_system_version do
+            %w(1 true yes).include?(ENV.fetch("DECIDIM_API_DISCLOSE_SYSTEM_VERSION", nil))
+          end
+        end
+      end
+
       config.to_prepare do
         # Helpers
         Decidim::LayoutHelper.include(Decidim::Patches::LayoutHelperExtensions)
