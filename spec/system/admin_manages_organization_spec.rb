@@ -40,6 +40,7 @@ describe "Admin manages organization", type: :system do
 
         it "saves the content correctly with the video" do
           click_button "Update"
+          expect(page).to have_content("Organization updated successfully")
 
           organization.reload
           expect(translated(organization.admin_terms_of_use_body)).to eq(
