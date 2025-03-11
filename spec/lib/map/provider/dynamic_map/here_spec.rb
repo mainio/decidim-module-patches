@@ -41,28 +41,26 @@ module Decidim
                 allow(I18n.config).to receive(:enforce_available_locales).and_return(false)
               end
 
-              after do
-                I18n.locale = "en"
-              end
-
               it "returns the correct builder options for CA" do
-                I18n.locale = "ca"
-                expect(subject.builder_options).to eq(
-                  marker_color: "#ef604d",
-                  tile_layer: {
-                    api_key: "key1234", foo: "bar", language: "ca"
-                  }
-                )
+                I18n.with_locale("ca") do
+                  expect(subject.builder_options).to eq(
+                    marker_color: "#ef604d",
+                    tile_layer: {
+                      api_key: "key1234", foo: "bar", language: "ca"
+                    }
+                  )
+                end
               end
 
               it "returns the correct builder options for ES" do
-                I18n.locale = "es"
-                expect(subject.builder_options).to eq(
-                  marker_color: "#ef604d",
-                  tile_layer: {
-                    api_key: "key1234", foo: "bar", language: "es"
-                  }
-                )
+                I18n.with_locale("es") do
+                  expect(subject.builder_options).to eq(
+                    marker_color: "#ef604d",
+                    tile_layer: {
+                      api_key: "key1234", foo: "bar", language: "es"
+                    }
+                  )
+                end
               end
             end
           end
