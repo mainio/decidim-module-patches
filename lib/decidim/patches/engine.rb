@@ -32,6 +32,14 @@ module Decidim
         Decidim::Admin::DestroyComponent.include(
           Decidim::Patches::Admin::DestroyComponentExtensions
         )
+        Decidim::Budgets::Admin::ImportProposalsToBudgets.include(
+          Decidim::Patches::Admin::ImportProposalsToBudgetsExtensions
+        )
+
+        # Forms
+        Decidim::Budgets::Admin::ProjectImportProposalsForm.include(
+          Decidim::Patches::Admin::ProjectImportProposalsFormExtensions
+        )
 
         # Queries
         Decidim::Admin::NewsletterRecipients.include(
