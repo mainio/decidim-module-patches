@@ -11,6 +11,11 @@ module Decidim
           Decidim::Patches::Admin::CreateParticipatorySpacePrivateUserExtensions
         )
 
+        # Queries
+        Decidim::Admin::NewsletterRecipients.include(
+          Decidim::Patches::Admin::NewsletterRecipientsExtensions
+        )
+
         # Lib
         Decidim::FormBuilder.include(Decidim::Patches::FormBuilderExtensions)
       end
