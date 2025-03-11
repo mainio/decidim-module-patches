@@ -5,6 +5,5 @@ require_relative "patches/engine"
 
 module Decidim
   module Patches
-    include ActiveSupport::Configurable
   end
 end
