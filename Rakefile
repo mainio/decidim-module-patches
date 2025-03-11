@@ -8,6 +8,12 @@ def install_module(path)
   end
 end
 
+def seed_db(path)
+  Dir.chdir(path) do
+    system("bundle exec rake db:seed")
+  end
+end
+
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app" do
   ENV["RAILS_ENV"] = "test"
@@ -31,4 +37,9 @@ task :development_app do
 
   install_module("development_app")
   seed_db("development_app")
+
+  # Fix https://github.com/decidim/decidim/issues/12545
+  Dir.chdir("development_app") do
+    system("npm i -D webpack-dev-server@4.15.1")
+  end
 end
