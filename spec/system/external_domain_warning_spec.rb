@@ -19,6 +19,25 @@ describe "ExternalDomainWarning", type: :system do
     expect_no_js_errors
   end
 
+  it "adds the correct rel attribute to the link" do
+    visit "/link?external_url=https://www.mainiotech.fi"
+
+    link = find("a", text: "Proceed")
+    expect(link["href"]).to eq("https://www.mainiotech.fi/")
+    expect(link["rel"]).to eq("nofollow noopener noreferrer")
+  end
+
+  context "with the warning modal" do
+    it "adds the correct rel attribute to the link" do
+      click_link "Very nice link"
+      expect(page).to have_content("Open external link")
+
+      link = find("a", text: "Proceed")
+      expect(link["href"]).to eq("http://www.github.com")
+      expect(link["rel"]).to eq("nofollow noopener noreferrer")
+    end
+  end
+
   context "when the url is malformed" do
     let(:invalid_url) do
       "http://#{organization.host}/link?external_url=javascript:alert(document.location.host)//%0ahttps://www.example.org"
