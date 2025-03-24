@@ -5,6 +5,5 @@ require_relative "patches/engine"
 
 module Decidim
   module Patches
-    autoload :FormBuilderExtensions, "decidim/patches/form_builder_extensions"
   end
 end

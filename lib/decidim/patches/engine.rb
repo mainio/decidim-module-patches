@@ -46,9 +46,6 @@ module Decidim
           Decidim::Patches::Admin::NewsletterRecipientsExtensions
         )
 
-        # Lib
-        Decidim::FormBuilder.include(Decidim::Patches::FormBuilderExtensions)
-
         # Controllers
         Decidim::LinksController.include(Decidim::Patches::LinksControllerExtensions)
       end
