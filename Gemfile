@@ -19,9 +19,6 @@ gem "bootsnap", "~> 1.4"
 gem "faker", "~> 2.14"
 gem "puma", ">= 5.6.2"
 
-# Fix for: https://github.com/rails/rails/issues/54260
-gem "concurrent-ruby", "1.3.4"
-
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
 
