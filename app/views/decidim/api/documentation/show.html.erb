@@ -1,0 +1,8 @@
+<div class="content">
+  <h1><%= current_organization.name %> API documentation</h1>
+  <% if defined?(graphiql_path) %>
+    <%= link_to "Explore the API interactively with GraphiQL", graphiql_path %>
+  <% end %>
+</div>
+
+<%= static_api_docs_content %>
