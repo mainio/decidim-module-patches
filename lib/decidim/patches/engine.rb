@@ -21,6 +21,11 @@ module Decidim
         end
       end
 
+      initializer "decidim_patches.add_cells_view_paths", before: "add_cells_view_paths" do
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Patches::Engine.root}/app/cells")
+        Cell::ViewModel.view_paths << File.expand_path("#{Decidim::Patches::Engine.root}/app/views")
+      end
+
       config.to_prepare do
         # Helpers
         Decidim::LayoutHelper.include(Decidim::Patches::LayoutHelperExtensions)
