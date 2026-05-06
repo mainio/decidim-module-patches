@@ -51,6 +51,9 @@ module Decidim
           Decidim::Patches::Admin::NewsletterRecipientsExtensions
         )
 
+        # Models
+        Decidim::Budgets::Order.include(Decidim::Patches::OrderExtensions)
+
         # Controllers
         Decidim::LinksController.include(Decidim::Patches::LinksControllerExtensions)
         Decidim::Budgets::OrdersController.include(Decidim::Patches::OrdersControllerExtensions)
