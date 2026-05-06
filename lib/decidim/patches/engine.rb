@@ -53,6 +53,7 @@ module Decidim
 
         # Controllers
         Decidim::LinksController.include(Decidim::Patches::LinksControllerExtensions)
+        Decidim::Budgets::OrdersController.include(Decidim::Patches::OrdersControllerExtensions)
       end
     end
   end
